@@ -1,46 +1,15 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { ReactNode } from "react";
+import { AuthContext, useProvideAuth } from "./UserContext.ts";
+import "./StyleContext.css";
 
-interface User {
-    username: string;
-    password: string;
-}
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
+  const auth = useProvideAuth();
 
-interface AuthContextType {
-    isAuthenticated: boolean;
-    user: User | null;
-    login: (username: string, password: string) => boolean;
-    logout: () => void;
-}
+  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
+};
 
-export const AuthContext = createContext<AuthContextType>({
-    isAuthenticated: false,
-    user: null,
-    login: () => false,
-    logout: () => {},
-});
-
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(true);
-    const [user] = useState<User | null>({
-        username: 'user',
-        password: 'password'
-    });
-
-    const login = (username: string, password: string): boolean => {
-        if (username === user?.username && password === user?.password) {
-            setIsAuthenticated(true);
-            return true;
-        }
-        return false;
-    };
-
-    const logout = () => {
-        setIsAuthenticated(false);
-    };
-
-    return (
-        <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
-            {children}
-        </AuthContext.Provider>
-    );
+export const useAuth = () => {
+  return React.useContext(AuthContext);
 };
