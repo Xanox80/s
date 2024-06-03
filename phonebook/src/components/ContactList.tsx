@@ -1,11 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState} from "react";
 import { ListGroup, Button, Form } from "react-bootstrap";
 import { useStore } from "../store/useStore";
-import { CaseContext } from "../context/case-context"; // Adjust the path as necessary
 import "./Add.style.css";
 
 const ContactList: React.FC = () => {
-  const { firstcase, secondcase } = useContext(CaseContext);
+
   const { contacts, removeContact, updateContact } = useStore();
   const [editingContactId, setEditingContactId] = useState<number | null>(null);
   const [editedName, setEditedName] = useState("");
@@ -28,8 +27,7 @@ const ContactList: React.FC = () => {
 
   return (
       <ListGroup>
-        <div>First Case: {firstcase.name} - {firstcase.case}</div>
-        <div>Second Case: {secondcase.name} - {secondcase.case}</div>
+
         {contacts.map((contact) => (
             <ListGroup.Item key={contact.id} className="ContactListItem">
               {editingContactId === contact.id ? (

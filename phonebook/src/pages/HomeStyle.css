@@ -1,0 +1,47 @@
+.home-container {
+    background: #f0ece9;
+    padding: 20px;
+    max-width: 900px; /* Максимальна ширина для більш компактного вигляду */
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #3d3630;
+    font-size: 1.8rem; /* Зменшений розмір шрифту для заголовку */
+}
+
+.profile-image {
+    height: 120px; /* Зменшений розмір зображення */
+}
+
+.carousel-image {
+    height: 300px; /* Фіксована висота для зображень каруселі */
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(240, 236, 233, 0.8); /* Напівпрозорий фон для підписів */
+    color: #3d3630;
+}
+
+@media (max-width: 768px) {
+    .home-container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .profile-image {
+        height: 100px;
+    }
+
+    .carousel-image {
+        height: 200px;
+    }
+}

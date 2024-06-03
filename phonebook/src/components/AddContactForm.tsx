@@ -32,6 +32,7 @@ const AddContactForm: React.FC = () => {
 
   return (
       <div className="AddContactFormContainer">
+
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formName">
             <Form.Label className="AddContactFormLabel">Name</Form.Label>
@@ -52,7 +53,7 @@ const AddContactForm: React.FC = () => {
           </Form.Group>
 
           <Form.Group controlId="formFirstCaseName">
-            <Form.Label className="AddContactFormLabel">First Case Name</Form.Label>
+            <Form.Label className="AddContactFormLabel">First Case </Form.Label>
             <Form.Control
                 type="text"
                 value={firstcase.name}
@@ -61,7 +62,7 @@ const AddContactForm: React.FC = () => {
           </Form.Group>
 
           <Form.Group controlId="formSecondCaseName">
-            <Form.Label className="AddContactFormLabel">Second Case Name</Form.Label>
+            <Form.Label className="AddContactFormLabel">Second Case </Form.Label>
             <Form.Control
                 type="text"
                 value={secondcase.name}

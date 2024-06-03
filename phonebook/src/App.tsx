@@ -7,14 +7,16 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import "./index.css";
 
+
 const App: React.FC = () => {
   return (
+
     <AuthProvider>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+          <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/login" element={<Login/>}/>
+          </Routes>
       </Router>
     </AuthProvider>
   );
